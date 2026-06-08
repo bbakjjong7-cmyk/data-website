@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>청소년 디지털 웰니스(YWI) 분석 대시보드</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo-area">
+                <div class="logo-icon"></div>
+                <h1>디지털 웰니스</h1>
+                <p>청소년 미디어-건강 분석</p>
+            </div>
+            
+            <ul class="nav-links">
+                <li class="nav-item active" data-tab="overview">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">개요 및 연구 목적</span>
+                </li>
+                <li class="nav-item" data-tab="research-design">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-text">연구 설계</span>
+                </li>
+                <li class="nav-item" data-tab="hypothesis1">
+                    <span class="nav-icon">📱</span>
+                    <span class="nav-text">스마트폰 사용과 과의존</span>
+                </li>
+                <li class="nav-item" data-tab="hypothesis2">
+                    <span class="nav-icon">🏃‍♂️</span>
+                    <span class="nav-text">신체 건강과의 관계</span>
+                </li>
+                <li class="nav-item" data-tab="hypothesis3">
+                    <span class="nav-icon">🧠</span>
+                    <span class="nav-text">정신 건강과의 관계</span>
+                </li>
+                <li class="nav-item" data-tab="ywi-index">
+                    <span class="nav-icon">📈</span>
+                    <span class="nav-text">YWI 통합 지수 상세</span>
+                </li>
+                <li class="nav-item" data-tab="discussion">
+                    <span class="nav-icon">💬</span>
+                    <span class="nav-text">결과 해석 및 논의</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-header">
+                <h2>데이터 사이언스 개론 5조 보고서 시각화</h2>
+                <div class="user-profile">
+                    <span class="status-indicator"></span>
+                    <span>Live Dashboard</span>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                
+                <!-- Tab: Overview -->
+                <section id="overview" class="tab-content active">
+                    <div class="glass-card full-width">
+                        <h3>미디어 과의존은 과연 청소년을 병들게 하는가?</h3>
+                        <p class="subtitle">청소년의 미디어 이용이 신체적·정신적·사회적 건강에 미치는 종합적 영향 분석 및 '청소년 디지털 웰니스 지수(YWI)' 개발</p>
+                        
+                        <div class="content-block mt-2">
+                            <h4>연구 목적 및 배경</h4>
+                            <p>코로나19 시기를 거치며 청소년의 스마트폰 사용과 미디어 의존도는 전례 없이 급증했습니다. 이에 따라 비만, 시력 저하, 사이버폭력 등 다양한 부작용이 나타나고 있습니다. 기존 연구들은 이를 파편적으로 분석하는 데 그쳤으나, 본 연구는 미디어 과의존이 청소년의 건강 밸런스를 어떻게 연쇄적이고 다각적으로 무너뜨리는지 종합적으로 진단하고자 합니다.</p>
+                            <p>국가 승인 통계 데이터를 기반으로 이를 정량화한 <strong>'청소년 디지털 웰니스 지수(YWI)'</strong>를 개발하여, 건강 증진 정책 마련을 위한 객관적인 지표를 제시하는 것이 최종 목표입니다.</p>
+                        </div>
+
+                        <div class="summary-grid">
+                            <div class="summary-card" data-trigger="hypothesis1">
+                                <h4>가설 1</h4>
+                                <p>스마트폰 사용시간이 많을수록 과의존 위험군 비율도 높게 나타날 것이다.</p>
+                                <span class="action-text">결과 보기 &rarr;</span>
+                            </div>
+                            <div class="summary-card" data-trigger="hypothesis2">
+                                <h4>가설 2</h4>
+                                <p>여가시간 스마트폰 이용 증가는 신체활동 감소와 좌식시간 증가에 영향을 미칠 것이다.</p>
+                                <span class="action-text">결과 보기 &rarr;</span>
+                            </div>
+                            <div class="summary-card" data-trigger="hypothesis3">
+                                <h4>가설 3</h4>
+                                <p>스마트폰 이용 증가로 사이버폭력·혐오표현 등 부정적 경험도 증가했을 것이다.</p>
+                                <span class="action-text">결과 보기 &rarr;</span>
+                            </div>
+                            <div class="summary-card highlight" data-trigger="ywi-index">
+                                <h4>가설 4 (최종 지수)</h4>
+                                <p>'청소년 디지털 웰니스 지수(YWI)'는 하락 추세를 보일 것이다.</p>
+                                <span class="action-text">결과 보기 &rarr;</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tab: Research Design -->
+                <section id="research-design" class="tab-content">
+                    <div class="section-header">
+                        <h3>연구 설계</h3>
+                        <p>가설 설정, 사용 데이터, 및 분석 방법 (보고서 III장)</p>
+                    </div>
+
+                    <div class="grid-2col">
+                        <div class="glass-card">
+                            <h4>가설 설정</h4>
+                            <ul class="styled-list">
+                                <li><strong>가설 1:</strong> 청소년의 스마트폰 사용시간이 많을수록 과의존 위험군 비율도 높게 나타날 것이다.</li>
+                                <li><strong>가설 2:</strong> 여가시간 스마트폰 이용 증가는 청소년의 신체활동 감소와 좌식시간 증가에 영향을 미쳤을 것이다.</li>
+                                <li><strong>가설 3:</strong> 스마트폰 이용 증가로 사이버폭력·혐오표현 등 청소년의 부정적 경험도 증가했을 것이다.</li>
+                                <li><strong>가설 4:</strong> 각 건강 지표를 통합하여 직접 제작해본 '청소년 디지털 웰니스 지수(YWI)'는 하락 추세를 보일 것이다.</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card">
+                            <h4>사용 데이터 기관</h4>
+                            <ul class="styled-list">
+                                <li><strong>청소년정책 분석평가센터:</strong> 연도별 비만율, 여가활동 내용, 학업중단율 등</li>
+                                <li><strong>미디어통계포털:</strong> 스마트폰 과의존 위험군, 사이버폭력/혐오표현 경험, 평일/휴일 기기 활용 시간</li>
+                                <li><strong>질병관리청 건강행태조사:</strong> 주중/주말 좌식시간, 신체활동 실천율, 수면 충족률</li>
+                                <li><strong>교육부 학생건강정보센터:</strong> 시력 이상 비율</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="glass-card full-width mt-2">
+                        <h4>3-4. 분석 방법</h4>
+                        <div class="insight-box">
+                            <p>가설별로 관련 지표 간 시계열 추세 분석과 상관관계 분석을 실시하였다. 시계열 추세 분석은 연도별 변화 방향을 꺾은선 그래프로 시각화하여 두 지표가 같은 방향으로 움직이는지 확인하였다. 이때 단위가 서로 다른 변수를 이중축으로 표현할 경우 축 설정에 따른 시각적 왜곡이 발생할 수 있기에 각 변수를 0~100 스케일로 정규화하고 단일 축으로 나타내는 방식을 채택하였다.</p>
+                            <p>상관관계 분석은 파이썬 scipy 라이브러리 등을 활용하여 상관계수와 p값을 함께 산출하였고 상관계수의 크기와 통계적 유의성을 함께 고려해 변수 간 관계 강도를 해석하였다. 일반적으로 상관계수 0.4 이상이면 중간 이상의 상관성이 나타난다고 간주하였고 p값이 0.05 미만인 경우에 한해 통계적으로 유의미한 관계로 판단하였다.</p>
+                            <p>가설1은 스마트기기 활용시간과 스마트폰 과의존 위험군 간의 상관관계 및 p값을 산출하여 분석에 활용하였다. 가설2는 여가시간 동영상 콘텐츠 시청 비중과 청소년의 좌식시간 증가, 신체활동 감소에 미치는 영향을 중심으로 분석하였으며, 비만율, 시력이상율, 수면충족률은 보조 지표로 함께 살펴보았다. 가설3은 사이버폭력 피해 경험, 디지털 혐오표현 경험과 정신건강 지표 간의 관계를 분석하였다. 가설4는 미디어 건전성, 신체 활력도, 정신 회복탄력성 세 영역 점수를 산출하고 학업중단율을 기준 변수로 한 피어슨 상관계수를 통해 가중치를 도출한 후 이를 종합하여 청소년 디지털 웰니스 지수(YWI)를 산출하였으며, 연도별 추이를 시계열 회귀분석으로 검증하였다.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card full-width mt-2">
+                        <h4>3-5. 통합 지표 산출 방법</h4>
+                        <div class="insight-box">
+                            <p>청소년의 미디어 과의존이 신체적, 정신적 건강에 미치는 영향을 종합적으로 평가하기 위해 통합 지표 '청소년 디지털 웰니스 지수(YWI)'를 제안한다. 웰니스(wellness)라는 신체적 건강과 정신적 건강을 모두 포괄하는 용어를 채용하여 청소년의 미디어 건강을 세련되고 간결하게 표현하고자 하였다. 이 지수는 0점에서 100점 사이의 값을 가지며, 점수가 높을수록 미디어 이용이 건강하게 이루어지고 신체적, 정신적 건강 상태가 양호함을 의미한다.</p>
+                            
+                            <div class="formula-box" style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; margin: 1rem 0; border: 1px solid var(--glass-border); text-align: center;">
+                                <code>YWI = (W1 × 미디어 건전성 점수) + (W2 × 신체 활력도 점수) + (W3 × 정신 회복탄력성 점수)</code>
+                            </div>
+                            
+                            <p>여기서 W1, W2, W3는 각 하위 지표의 중요도를 반영하는 가중치이며, 소수점 기준으로 합계는 1(백분율 표기 시 100%)이 된다. 각 하위 지표의 산출 로직은 다음과 같다.</p>
+                            
+                            <ul class="styled-list" style="margin-top: 1rem;">
+                                <li><strong>1) 미디어 건전성 점수 (Media Wellness Score)</strong><br>
+                                산출 방식: (100 - 스마트폰 과의존 위험군 비율) + (적정 미디어 이용 시간 준수율) - (사이버폭력과 혐오표현 경험률)</li>
+                                <li><strong>2) 신체 활력도 점수 (Physical Vitality Score)</strong><br>
+                                산출 방식: (100 - 비만율) + (하루 60분 주5일 이상 신체활동 실천율) - (시력 이상 비율) - (학습 목적 외 좌식 시간 가중치)</li>
+                                <li><strong>3) 정신 회복탄력성 점수 (Mental Resilience Score)</strong><br>
+                                산출 방식: (주관적 정신 건강 긍정 응답률) + (주관적 수면 충족률) + (여가 활동 다양성 점수)</li>
+                            </ul>
+                            
+                            <p style="margin-top: 1rem;"><strong>변수 간 스케일 차이 문제 해결 : 정규화(Min-Max Scaling) 적용</strong><br>
+                            각 지표의 단위와 범위가 달라 단순 합산 시 특정 지표가 전체 점수에 과도한 영향을 미칠 수 있었기에 모든 원시 데이터를 Min-Max 정규화를 통해 0~100점 만점의 시험 점수로 변환하여 점수 합산에 왜곡이 없도록 하였다.</p>
+
+                            <p style="margin-top: 1rem;"><strong>가중치 계산 및 기준 변수</strong><br>
+                            증명하려는 최종 결론이 '청소년이 병들고 있다(건강 악화)'이므로, 사회적 결과물인 <strong>'학업 중단율'</strong>을 기준 변수로 삼는다. 각 영역 지표와 기준 변수 간의 피어슨 상관계수(Pearson Correlation Coefficient)를 계산한 후, 상관계수의 절댓값을 총합으로 나누어 전체 합이 1(100%)이 되도록 비율을 맞춰 최종 가중치(W1: 0.3359, W2: 0.3268, W3: 0.3373)를 도출하였다.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tab: Hypothesis 1 -->
+                <section id="hypothesis1" class="tab-content">
+                    <div class="section-header">
+                        <h3>스마트폰 사용과 과의존 간 관계 분석</h3>
+                        <p>단순 사용 시간의 증가가 반드시 과의존을 의미하는가?</p>
+                    </div>
+                    
+                    <div class="chart-stack">
+                        <div class="glass-card chart-card full-width">
+                            <h4>[그래프1] 스마트기기 활용시간과 청소년 과의존 위험군 추이 (정규화 0~100 스케일)</h4>
+                            <div class="chart-container">
+                                <canvas id="chart-h1-1"></canvas>
+                            </div>
+                        </div>
+                        <div class="glass-card chart-card full-width mt-2">
+                            <h4>[그래프2] 스마트기기 활용시간과 과의존 추이 (코로나 시기 제외, 0~100 스케일)</h4>
+                            <div class="chart-container">
+                                <canvas id="chart-h1-2"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card info-card mt-2">
+                        <h4>상관분석 및 p-value 결과</h4>
+                        <div class="insight-box">
+                            <p><strong>전체 기간 (2016~2024년)</strong></p>
+                            <ul class="insight-list">
+                                <li>평일 시간 - 과의존: r = -0.12 (p = 0.774)</li>
+                                <li>휴일 시간 - 과의존: r = -0.09 (p = 0.816)</li>
+                            </ul>
+                            <p>전체 기간을 기준으로는 선형적 상관관계가 매우 약하거나 통계적으로 유의미하지 않았습니다.</p>
+                            <hr class="divider">
+                            <p><strong>코로나19 시기 제외 시</strong></p>
+                            <ul class="insight-list">
+                                <li>평일 시간 - 과의존: r = -0.89 (p = 0.017) <span class="badge positive">유의미</span></li>
+                                <li>휴일 시간 - 과의존: r = -0.69 (p = 0.126)</li>
+                            </ul>
+                            <p>오히려 시간이 감소함에도 위험군은 증가하는 현상을 보였습니다. 결과적으로 <strong>가설1은 기각</strong>되었으며, 과의존이 단순 '사용시간의 양'보다는 <strong>'콘텐츠 유형, 사용 방식, 자기통제력'</strong> 등 다양한 요인과 복합적으로 관련되어 있음을 확인하였습니다.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tab: Hypothesis 2 -->
+                <section id="hypothesis2" class="tab-content">
+                    <div class="section-header">
+                        <h3>미디어 이용과 신체 건강의 강력한 동조화</h3>
+                        <p>좌식 시간의 증가와 비만율의 상관관계 및 히트맵</p>
+                    </div>
+
+                    <div class="glass-card full-width mb-2">
+                        <h4>[그래프3] 신체건강 변수 간 상관관계 히트맵</h4>
+                        <div class="heatmap-container">
+                            <table class="heatmap-table detailed">
+                                <tr>
+                                    <th></th>
+                                    <th>주중좌식시간</th>
+                                    <th>주말좌식시간</th>
+                                    <th>신체활동 실천율</th>
+                                    <th>비만율</th>
+                                    <th>시력 이상율</th>
+                                    <th>수면 충족률</th>
+                                </tr>
+                                <tr>
+                                    <th>주중좌식시간</th>
+                                    <td data-value="1.00">1.00<br><span class="p-val">p=0.000 ***</span></td>
+                                    <td data-value="0.98">0.98<br><span class="p-val">p=0.000 ***</span></td>
+                                    <td data-value="0.70">0.70<br><span class="p-val">p=0.036 *</span></td>
+                                    <td data-value="0.93">0.93<br><span class="p-val">p=0.000 ***</span></td>
+                                    <td data-value="0.61">0.61<br><span class="p-val">p=0.081 n.s.</span></td>
+                                    <td data-value="-0.34">-0.34<br><span class="p-val">p=0.371 n.s.</span></td>
+                                </tr>
+                                <tr>
+                                    <th>주말좌식시간</th>
+                                    <td data-value="0.98">0.98<br><span class="p-val">p=0.000 ***</span></td>
+                                    <td data-value="1.00">1.00<br><span class="p-val">p=0.000 ***</span></td>
+                                    <td data-value="0.71">0.71<br><span class="p-val">p=0.032 *</span></td>
+                                    <td data-value="0.87">0.87<br><span class="p-val">p=0.002 **</span></td>
+                                    <td data-value="0.57">0.57<br><span class="p-val">p=0.109 n.s.</span></td>
+                                    <td data-value="-0.21">-0.21<br><span class="p-val">p=0.588 n.s.</span></td>
+                                </tr>
+                                <tr>
+                                    <th>신체활동 실천율</th>
+                                    <td data-value="0.70">0.70<br><span class="p-val">p=0.036 *</span></td>
+                                    <td data-value="0.71">0.71<br><span class="p-val">p=0.032 *</span></td>
+                                    <td data-value="1.00">1.00<br><span class="p-val">p=0.000 ***</span></td>
+                                    <td data-value="0.68">0.68<br><span class="p-val">p=0.044 *</span></td>
+                                    <td data-value="0.44">0.44<br><span class="p-val">p=0.236 n.s.</span></td>
+                                    <td data-value="-0.24">-0.24<br><span class="p-val">p=0.534 n.s.</span></td>
+                                </tr>
+                                <tr>
+                                    <th>비만율</th>
+                                    <td data-value="0.93">0.93<br><span class="p-val">p=0.000 ***</span></td>
+                                    <td data-value="0.87">0.87<br><span class="p-val">p=0.002 **</span></td>
+                                    <td data-value="0.68">0.68<br><span class="p-val">p=0.044 *</span></td>
+                                    <td data-value="1.00">1.00<br><span class="p-val">p=0.000 ***</span></td>
+                                    <td data-value="0.65">0.65<br><span class="p-val">p=0.058 n.s.</span></td>
+                                    <td data-value="-0.50">-0.50<br><span class="p-val">p=0.170 n.s.</span></td>
+                                </tr>
+                                <tr>
+                                    <th>시력 이상율</th>
+                                    <td data-value="0.61">0.61<br><span class="p-val">p=0.081 n.s.</span></td>
+                                    <td data-value="0.57">0.57<br><span class="p-val">p=0.109 n.s.</span></td>
+                                    <td data-value="0.44">0.44<br><span class="p-val">p=0.236 n.s.</span></td>
+                                    <td data-value="0.65">0.65<br><span class="p-val">p=0.058 n.s.</span></td>
+                                    <td data-value="1.00">1.00<br><span class="p-val">p=0.000 ***</span></td>
+                                    <td data-value="0.04">0.04<br><span class="p-val">p=0.919 n.s.</span></td>
+                                </tr>
+                                <tr>
+                                    <th>수면 충족률</th>
+                                    <td data-value="-0.34">-0.34<br><span class="p-val">p=0.371 n.s.</span></td>
+                                    <td data-value="-0.21">-0.21<br><span class="p-val">p=0.588 n.s.</span></td>
+                                    <td data-value="-0.24">-0.24<br><span class="p-val">p=0.534 n.s.</span></td>
+                                    <td data-value="-0.50">-0.50<br><span class="p-val">p=0.170 n.s.</span></td>
+                                    <td data-value="0.04">0.04<br><span class="p-val">p=0.919 n.s.</span></td>
+                                    <td data-value="1.00">1.00<br><span class="p-val">p=0.000 ***</span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="chart-grid">
+                        <div class="glass-card chart-card large">
+                            <h4>주중 좌식시간과 비만율 추이 (산점도 및 회귀선)</h4>
+                            <div class="chart-container">
+                                <canvas id="chart-h2-1"></canvas>
+                            </div>
+                        </div>
+                        <div class="glass-card info-card">
+                            <h4>히트맵 상관분석 결과</h4>
+                            <div class="insight-box mt-2">
+                                <p>주중 좌식시간과 비만율은 <strong>매우 강한 양의 상관관계(r=0.93, p < 0.001)</strong>를 나타냅니다.</p>
+                                <p>단순한 "운동 부족"을 넘어, 스마트폰 사용으로 인한 <strong>"장시간 좌식 생활 증가"</strong> 자체가 청소년 건강 악화의 핵심 원인임을 보여줍니다.</p>
+                                <p>좌식시간과 시력 이상률 사이에서도 (0.57~0.61) 양의 상관관계가 나타나, 근거리 화면 시청 시간 증가가 시력 건강에 미치는 영향을 시사합니다.</p>
+                                <hr class="divider">
+                                <p>결론적으로 <strong>가설2는 부분적으로 지지</strong>되었습니다. 좌식시간 증가 부분에서는 지지되었으나, 신체활동 실천율은 예상과 달리 소폭 증가(12.9%→17.0%)하여 감소 부분은 완전히 지지되지 않았습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tab: Hypothesis 3 -->
+                <section id="hypothesis3" class="tab-content">
+                    <div class="section-header">
+                        <h3>미디어 역기능 노출과 정신 건강</h3>
+                        <p>온라인 환경의 부정적 경험과 주관적 정신건강 악화</p>
+                    </div>
+
+                    <div class="chart-grid">
+                        <div class="glass-card chart-card large">
+                            <h4>사이버폭력·혐오표현 피해 및 주관적 건강 긍정률</h4>
+                            <div class="chart-container">
+                                <canvas id="chart-h3-1"></canvas>
+                            </div>
+                        </div>
+                        <div class="glass-card info-card">
+                            <h4>상관분석 결과</h4>
+                            <div class="insight-box">
+                                <ul class="insight-list">
+                                    <li>과의존 위험군 - 정신 회복탄력성: r = 0.6997</li>
+                                    <li>과의존 위험군 - 미디어 건전성: r = 0.6804</li>
+                                </ul>
+                                <p>사이버폭력 피해 경험률은 2021년 23.4%에서 2025년 37.5%로 증가했습니다.</p>
+                                <p>동시에 "나는 정신적으로 건강하다"고 응답한 긍정 비율은 지속적으로 감소하는 추세를 보입니다. 사이버폭력은 단순한 온라인 문제를 넘어 우울, 불안 등 정신건강 전반에 타격을 줍니다.</p>
+                                <hr class="divider">
+                                <p>피해 경험률이 증가하고 주관적 정신건강 긍정률이 감소하는 방향이 일치하여 <strong>가설3의 방향성은 지지</strong>되었으나, 변수 간 조사 시기가 불일치하여 통계적 검증은 어려웠다는 한계가 있습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tab: YWI Index -->
+                <section id="ywi-index" class="tab-content">
+                    <div class="section-header">
+                        <h3>청소년 디지털 웰니스 지수 (YWI) 세부 산출</h3>
+                        <p>신체적·정신적·미디어 환경 요소를 통합한 새로운 건강 지표의 산출 공식 및 추이</p>
+                    </div>
+
+                    <div class="glass-card full-width mb-2">
+                        <h4>통합 지표 산출 방법 (환산 및 수식)</h4>
+                        <div class="insight-box">
+                            <p><strong>Min-Max 정규화:</strong> 각 원시 데이터 단위가 달라 단순 합산 시 발생하는 왜곡을 막기 위해 모든 데이터를 <code>X_scaled = (X - X_min) / (X_max - X_min) * 100</code> 공식을 통해 0점~100점으로 정규화했습니다.</p>
+                            <p><strong>가중치 계산 (학업중단율 기준):</strong> 청소년의 미디어 과의존과 신체/정신적 악화가 복합적으로 발현되었을 때 일어나는 사회적 결과물인 <strong>'학업 중단율'</strong>을 기준변수로 설정했습니다. 각 영역 점수와 학업중단율 간의 피어슨 상관계수를 산출하여 최종 가중치(W1, W2, W3)를 도출했습니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid mt-2">
+                        <div class="stat-card">
+                            <span class="stat-label">W1 미디어 건전성</span>
+                            <span class="stat-value">33.59%</span>
+                            <p class="stat-desc"><code>(100 - 과의존율) + 적정시간 준수율 - (사이버폭력 + 혐오표현)</code></p>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">W2 신체 활력도</span>
+                            <span class="stat-value">32.68%</span>
+                            <p class="stat-desc"><code>(100 - 비만율) + 신체활동율 - 시력 이상율 - 좌식시간 가중감점</code></p>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">W3 정신 회복탄력성</span>
+                            <span class="stat-value">33.73%</span>
+                            <p class="stat-desc"><code>주관적 정신건강 긍정률 + 수면 충족률 + 여가 활동 다양성 점수</code></p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card full-width mt-2">
+                        <h4>세부 환산 기준 및 통계 처리 (파이썬 활용)</h4>
+                        <div class="insight-box">
+                            <p><strong>미디어 이용시간 준수율:</strong> 청소년에게 권장되는 스마트기기 이용시간인 2시간을 기준으로, 주간 평균 스마트 기기 이용 시간이 2시간 이내인 비율을 구하였습니다.</p>
+                            <p><strong>학습목적 외 좌식 시간 환산 점수:</strong> 학습 목적 외 좌식 시간이 2시간이 넘는 초과 시간 1시간당 10점을 감점하고, 신체활동 실천율 1%당 0.2점의 보정 가중치를 더하였습니다.</p>
+                            <p><strong>여가활동 다양성 점수:</strong> 청소년 정책 분석 평가센터에서 분석한 여가활동 내용 중 (게임/인터넷 검색, 동영상 콘텐츠 시청)을 미디어 활동으로, (문화 예술 관람, 스포츠 활동, 취미 자기개발)을 비미디어 활동으로 분류하여 비율을 구했습니다. 결측치가 있는 연도는 사이 연도의 평균값으로 보간하였으며, 평일 및 휴일 이용시간의 가중 평균 시간(주중 비율x5 + 주말 비율x2 / 7)을 계산했습니다. 최종적으로 <code>기본 50점 + (비미디어*1) - (미디어*0.2)</code>라는 계산으로 보정 가중치를 적용했습니다.</p>
+                            <hr class="divider">
+                            <p><strong>순환논리 오류 방지 및 파이썬 도입:</strong><br>
+                            가중치 계산 시 기준변수를 선정할 때 순환논리 오류를 방지하고자 했습니다. 미디어 과의존, 신체적 건강 악화, 정신적 회복탄력성 저하가 복합적이고 극단적으로 발현되었을 때 일어나는 사회적 결과물이 <strong>'학교 부적응 및 학업 중단'</strong>이라고 판단하여 이를 기준변수로 선택했습니다. 각각의 영역 점수와 피어슨 상관 계수를 산출하여 미디어 건전성 0.6804, 신체 활력도 0.8977, 정신 회복 탄력성 0.6997을 얻었습니다. 이를 통해 최종 가중치(W1: 0.2987, W2: 0.3941, W3: 0.3072)를 도출하여 2020~2024년도 최종 YWI 점수를 얻었습니다.</p>
+                            <p>이러한 환산 데이터 산출 및 가중치 계산에는 휴먼 에러를 완벽히 방지하고, 엑셀로는 다루기 복잡한 조건부 가중치 연산이나 결측치 자동 보간 등의 고도화된 통계 처리를 도와주는 <strong>파이썬(Python)</strong>을 전면 사용하였습니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card chart-card full-width mt-2">
+                        <h4>연도별 YWI 지수 추이 (시계열 회귀분석)</h4>
+                        <div class="chart-container ywi-container">
+                            <canvas id="chart-ywi"></canvas>
+                        </div>
+                        <div class="insight-box mt-2">
+                            <p><strong>회귀분석 결과:</strong> 도출된 회귀식의 기울기는 약 <strong>-4.28</strong>로, 연도가 1년 경과할 때마다 지수가 평균적으로 하락하는 우하향 추세를 확인했습니다.</p>
+                            <p><strong>결론:</strong> 분석 대상 기간이 짧아 통계적으로 유의미한 수준(p < 0.05)을 충족하지는 못하였으나, <strong>YWI의 전반적인 하락 추세(가설4)는 확인</strong>되었습니다. 이는 미디어 건전성, 신체 활력도, 정신 회복탄력성의 변화 양상과도 일관된 흐름을 보입니다.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tab: Discussion -->
+                <section id="discussion" class="tab-content">
+                    <div class="section-header">
+                        <h3>결과 해석 및 논의</h3>
+                        <p>연구의 한계점과 시사점</p>
+                    </div>
+                    
+                    <div class="grid-2col">
+                        <div class="glass-card">
+                            <h4>연구 한계점</h4>
+                            <ul class="styled-list">
+                                <li><strong>설문조사 데이터의 한계:</strong> 주관적 느낌에 의존하는 자기보고식 설문이라 중앙집중 편향 및 사회적 바람직성 편향(사용시간 축소 응답 등)이 존재할 수 있습니다.</li>
+                                <li><strong>지표 산출의 한계:</strong> 여러 공공기관 데이터를 병합하는 과정에서 연령 기준이나 조사 시기가 완벽히 일치하지 않아 미세한 오차가 발생했습니다. 결측치는 평균값으로 보간하였습니다.</li>
+                                <li><strong>상관관계의 한계:</strong> 본 연구는 상관관계 분석에 머물러 있으며, "스마트폰이 건강 악화의 유일한 원인이다"라고 단정 지을 수 없습니다. (학업 스트레스 등 제3의 요인 존재 가능성)</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card">
+                            <h4>결론 및 제언</h4>
+                            <ul class="styled-list">
+                                <li><strong>단순 사용시간의 함정:</strong> 스마트폰 사용 시간 자체보다 '어떻게 사용하는지', '스스로 통제할 수 있는지'가 중요합니다.</li>
+                                <li><strong>디지털 리터러시 교육:</strong> 사용 시간 제한 중심의 정책에서 벗어나 올바른 콘텐츠 이용 습관과 자기통제 능력을 기르는 방향으로 전환해야 합니다.</li>
+                                <li><strong>신체활동 환경 조성:</strong> 장시간 좌식 생활을 완화하기 위해 학교 및 지역사회 차원의 자발적인 신체·여가 활동 프로그램을 확대해야 합니다.</li>
+                                <li><strong>온라인 안전 및 데이터 표준화:</strong> 사이버폭력/혐오표현에 대응하기 위한 온라인 안전 교육과 정신건강 지원 체계를 보완하고, 청소년 건강 관련 공공데이터의 수집 기준과 제공 방식을 표준화할 필요가 있습니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
